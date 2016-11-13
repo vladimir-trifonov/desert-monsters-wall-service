@@ -1,0 +1,19 @@
+{
+  "name": "desert-monsters-wall-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladimir-trifonov/desert-monsters-wall-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladimir-trifonov/desert-monsters-wall-service/issues"
+  },
+  "homepage": "https://github.com/vladimir-trifonov/desert-monsters-wall-service#readme"
+}
