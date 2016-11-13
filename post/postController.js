@@ -47,7 +47,7 @@ module.exports = {
      * postController.create()
      */
     create: function (req, res) {
-        var post = new postModel({			type : req.body.type,			userid : req.body.userid,			username : req.body.username,			sourceid : req.body.sourceid,			sourcename : req.body.sourcename,			content : req.body.content
+        var post = new postModel({			type : req.body.type,			userid : req.body.userid,			username : req.body.username,			srcuserid : req.body.srcuserid,			srcusername : req.body.srcusername,			srcid : req.body.srcid,			content : req.body.content,			likes : req.body.likes
         });
 
         post.save(function (err, post) {
@@ -79,7 +79,7 @@ module.exports = {
                 });
             }
 
-            post.type = req.body.type ? req.body.type : post.type;			post.userid = req.body.userid ? req.body.userid : post.userid;			post.username = req.body.username ? req.body.username : post.username;			post.sourceid = req.body.sourceid ? req.body.sourceid : post.sourceid;			post.sourcename = req.body.sourcename ? req.body.sourcename : post.sourcename;			post.content = req.body.content ? req.body.content : post.content;			
+            post.type = req.body.type ? req.body.type : post.type;			post.userid = req.body.userid ? req.body.userid : post.userid;			post.username = req.body.username ? req.body.username : post.username;			post.srcuserid = req.body.srcuserid ? req.body.srcuserid : post.srcuserid;			post.srcusername = req.body.srcusername ? req.body.srcusername : post.srcusername;			post.srcid = req.body.srcid ? req.body.srcid : post.srcid;			post.content = req.body.content ? req.body.content : post.content;			post.likes = req.body.likes ? req.body.likes : post.likes;			
             post.save(function (err, post) {
                 if (err) {
                     return res.status(500).json({
