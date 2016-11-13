@@ -47,12 +47,7 @@ module.exports = {
      * postController.create()
      */
     create: function (req, res) {
-        var post = new postModel({
-			type : req.body.type,
-			content : req.body.content,
-			likes : req.body.likes,
-			owner : req.body.owner,
-			source : req.body.source
+        var post = new postModel({			userid : req.body.userid,			ownerid : req.body.ownerid,			ownername : req.body.ownername,			type : req.body.type,			content : req.body.content,			srcid : req.body.srcid,			likes : req.body.likes
         });
 
         post.save(function (err, post) {
@@ -84,12 +79,7 @@ module.exports = {
                 });
             }
 
-            post.type = req.body.type ? req.body.type : post.type;
-			post.content = req.body.content ? req.body.content : post.content;
-			post.likes = req.body.likes ? req.body.likes : post.likes;
-			post.owner = req.body.owner ? req.body.owner : post.owner;
-			post.source = req.body.source ? req.body.source : post.source;
-			
+            post.userid = req.body.userid ? req.body.userid : post.userid;			post.ownerid = req.body.ownerid ? req.body.ownerid : post.ownerid;			post.ownername = req.body.ownername ? req.body.ownername : post.ownername;			post.type = req.body.type ? req.body.type : post.type;			post.content = req.body.content ? req.body.content : post.content;			post.srcid = req.body.srcid ? req.body.srcid : post.srcid;			post.likes = req.body.likes ? req.body.likes : post.likes;			
             post.save(function (err, post) {
                 if (err) {
                     return res.status(500).json({
