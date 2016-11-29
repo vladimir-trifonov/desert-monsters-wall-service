@@ -7,6 +7,8 @@ var jwt = require('express-jwt');
 var cors = require('cors');
 
 var port = process.env.PORT || 3030;
+
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_DB_CONN_STRING);
 
 app.use(cors());
