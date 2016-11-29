@@ -35,8 +35,7 @@ module.exports = {
                 });
             }
             return res.status(201).json({
-                ok: true,
-                post: post
+                ok: true
             });
         });
     }

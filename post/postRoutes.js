@@ -5,11 +5,11 @@ var postController = require('./postController.js');
 /*
  * GET
  */
-router.get('/:userid', postController.showByUserID);
+router.get('/users/:userid/posts', postController.showByUserID);
 
 /*
  * POST
  */
-router.post('/', postController.create);
+router.post('/posts', postController.create);
 
 module.exports = router;

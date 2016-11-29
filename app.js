@@ -2,14 +2,15 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
-//var config = require('./config');
 var mongoose = require('mongoose');
 var jwt = require('express-jwt');
+var cors = require('cors');
 
-var port = process.env.PORT || 6000;
-mongoose.connect('localhost:27017/wall-db');
+var port = process.env.PORT || 3030;
+mongoose.connect(process.env.MONGO_DB_CONN_STRING);
 
-//app.use(jwt({ secret: process.env.SECRET }));
+app.use(cors());
+app.use(jwt({ secret: process.env.SECRET }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ app.use(morgan('dev'));
 app.use(require('./post/postRoutes'));
 
 app.listen(port, function () {
-  //if (process.env === 'production') {
+  if (process.env === 'production') {
     var Thalassa = require('thalassa');
     var client = new Thalassa.Client({
       apiport: 80,
@@ -28,12 +29,11 @@ app.listen(port, function () {
       }
     });
 
-    client.register('desert-monsters-wall-service', '1.0.0', 6000, {
+    client.register('desert-monsters-wall-service', '1.0.0', port, {
       url: process.env.HOST
     });
     client.start();
+  }
 
-  //}
-
-  console.log('Server listens at port:' + 6000);
+  console.log('Server listens at port:' + port);
 });
