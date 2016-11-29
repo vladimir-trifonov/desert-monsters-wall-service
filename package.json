@@ -19,7 +19,9 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
     "mongoose": "^4.6.7",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "thalassa": "https://github.com/vladimir-trifonov/thalassa.git"
   }
 }

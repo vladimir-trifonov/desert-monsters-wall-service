@@ -2,8 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-	'userid': String,
-	'name': String
+	'id': String,
+	'name': String,
+	'avatar': String
 }, { _id: false });
 
 module.exports = userSchema;
